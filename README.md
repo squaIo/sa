@@ -1,3 +1,5 @@
+#importするモジュール
+
 import RPi.GPIO as GPIO
 import cv2
 import time
@@ -48,8 +50,6 @@ while True:
         if (cm > 2) and (cm < 400):
             print("distance=", int(cm), "cm")
         time.sleep(1)
-
-	)
         
         if cm < 50:
             ret, frame = camera.read()
