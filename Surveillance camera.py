@@ -1,5 +1,4 @@
 #importするモジュール
-
 import RPi.GPIO as GPIO
 import cv2
 import time
@@ -8,12 +7,10 @@ import requests
 import datetime
 
 #LINEmessagesendfunction
-
 url = 'https://notify-api.line.me/api/notify'
 token = ' 通知したいlineのアクセストークンを記入 '
     
-    
-
+#カメラ準備
 camera = cv2.VideoCapture(cv2.CAP_V4L2)
 
 # ポート番号の定義
@@ -35,7 +32,6 @@ def read_distance():
     while GPIO.input(Echo) == GPIO.LOW:
         sig_off = time.time()
     while GPIO.input(Echo) == GPIO.HIGH:
-
         sig_on = time.time()
 
     duration = sig_on - sig_off
@@ -54,14 +50,13 @@ while True:
         if cm < 50:
             ret, frame = camera.read()
             
+            #撮影した写真の保存先設定
             dt_now = datetime.datetime.now()
             file_name = dt_now.strftime('%Y年%m月%d日%H時%M分%S秒')
                
             result = cv2.imwrite("/home/pi/Desktop/images/" + file_name + ".jpg", frame)
             print(result)
-
             ms_date = "何かが映り込みました"
-
             image = '/home/pi/Desktop/images/' + file_name + '.jpg'
 
             send_data = {'message': ms_date}
