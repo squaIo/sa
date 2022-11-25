@@ -1,6 +1,19 @@
 # ちょっとした監視カメラ
 
+### センサーで動くものを検知して写真を撮る
 
+そしてすぐにLINEで写真とともに通知される
+
+### 使い方
+
+監視しておきたい対象の物の近くにサメの口の中に入ったセンサーを近くに置くだけ
+動きがあり次第センサーが反応して写真が送られてくる。
+
+### インストールが必要なライブラリ
+
+`import requests`
+
+`import cv2`
 
 ### 必要な電子パーツ等
 
@@ -11,48 +24,12 @@
 - カメラモジュール(今回使用したものはRasberry Pi Camera V2)
 - モバイルバッテリー
 
+### 参考文献
 
-### カメラモジュールを使う際の注意
+[sozorablog 監視カメラの作り方|Pythonでカメラモジュールを自在に操作](https://sozorablog.com/camera_shooting/)
 
+[sozorablog 【Python入門】LINEに自動でメッセージを送る（活用事例あり）](https://sozorablog.com/pythonline/)
 
-> Raspberry Piの中でカメラを有効にする
+[パソコン工房 Raspberry Piとカメラモジュールを接続する](https://www.pc-koubou.jp/magazine/17276)
 
-1. デスクトップから"設定"をクリック
-1. "Raspberry Piの設定"
-1. "インターフェイス"
-1. "カメラ"
-1. "OK"を押して設定が完了
-
-
-> Raspberry pi本体とカメラモジュールをつなぐ際にリボンケーブルを挿し込む向きに気を付ける
-
-1. Raspberry Piの黒いロック部分を持ち上げる
-1. 黒いロック部分にリボンケーブルの裏側が来るように挿し込む(端子がHDMIポート側に来る)
-1. リボンケーブルを挿し込んだら持ち上げた黒いロックを押し込む
-
-> ライブラリーのライブラリーのインストール
-
-Pythonで画像を扱うために、"Open CV"というライブラリーをラズパイにインストールする。
-
-ターミナルを開いてコマンドを一行ずつ実行していく
-
-1. pipを最新のバージョンに
-
-`sudo python -m pip install --upgrade pip`
-
-2. OpenCVをバージョン指定でインストール
-
-`sudo pip3 install opencv-python==4.5.1.48`
-
-3. numpyライブラリを最新に
-
-`pip install -U numpy`
-
-パッケージリストを最新に
-
-`sudo apt update`
-
-「libatlas3-base」 パッケージをインストール
-
-`sudo apt install libatlas3-base`
-
+[電気設計人.com【ラズパイ電子工作】超音波センサで距離を読み取る方法(HC-SR04)](https://denkisekkeijin.com/raspberrypi/pi-ultrasound/)
